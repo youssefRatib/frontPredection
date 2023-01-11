@@ -1,0 +1,29 @@
+/* container for the vote results */
+.vote-results {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+}
+
+/* container for the progress bar */
+.vote-results__bar {
+  flex: 1;
+  height: 10px;
+  background-color: #e5e5e5;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* the progress bar fill */
+.vote-results__bar__fill {
+  height: 100%;
+  border-radius: 10px;
+}
+
+/* the vote percentage label */
+.vote-results__label {
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}

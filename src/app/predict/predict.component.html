@@ -1,0 +1,94 @@
+<div class="container">
+  <form class="row g-3" [formGroup]="preFormGroup" (ngSubmit)="handlePredict()">
+    <div class="col-md-4">
+      <label for="age" class="form-label">Person age</label>
+      <input type="number" autocomplete formControlName="person_age" min="18" placeholder="18 =<" class="form-control" id="age">
+    </div>
+    <div class="col-md-4">
+      <label for="income" class="form-label">Person income</label>
+      <input type="number" formControlName="person_income" min="0" class="form-control" id="income">
+    </div>
+    <div class="col-md-4">
+      <label for="ownership" class="form-label">Person home ownership</label>
+      <select id="ownership" formControlName="person_home_ownership" class="form-select">
+        <option [selected]="true">Choose...</option>
+        <option>RENT</option>
+        <option>OWN</option>
+        <option>MORTGAGE</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label for="length" class="form-label">Person emp length</label>
+      <input type="number" formControlName="person_emp_length" min="0" class="form-control" id="length">
+    </div>
+    <div class="col-md-4">
+      <label for="intent" class="form-label">Loan intent</label>
+      <select id="intent" formControlName="loan_intent" class="form-select">
+        <option [selected]="true">Choose...</option>
+        <option>VENTURE</option>
+        <option>PERSONAL</option>
+        <option>EDUCATION</option>
+        <option>HOMEIMPROVEMENT</option>
+        <option>MEDICAL</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label for="grade" class="form-label">Loan grade</label>
+      <select id="grade" formControlName="loan_grade" class="form-select">
+        <option [selected]="true">Choose...</option>
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+        <option>D</option>
+        <option>E</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label for="amnt" class="form-label">Loan amnt</label>
+      <input type="number" formControlName="loan_amnt" min="0" class="form-control" id="amnt">
+    </div>
+    <div class="col-md-4">
+      <label for="rate" class="form-label">Loan int rate</label>
+      <input type="number" formControlName="loan_int_rate" min="0" step="0.01" class="form-control" id="rate">
+    </div>
+    <div class="col-md-4">
+      <label for="percent" class="form-label">Loan percent income</label>
+      <input type="number" formControlName="loan_percent_income" min="0" max="1" step="0.01" class="form-control" id="percent">
+    </div>
+    <div class="col-md-4">
+      <label for="default" class="form-label">Cb person default on file</label>
+      <select id="default" formControlName="cb_person_default_on_file" class="form-select">
+        <option [selected]="true">Choose...</option>
+        <option>Y</option>
+        <option>N</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label for="hist" class="form-label">Cb person cred hist length</label>
+      <input type="number" formControlName="cb_person_cred_hist_length" min="0" step="0.01" class="form-control" id="hist">
+    </div>
+    <div class="col-12">
+      <div class="form-check">
+        <input class="form-check-input" formControlName="loan_status" type="checkbox" id="status">
+        <label class="form-check-label" for="status">
+          Loan status
+        </label>
+      </div>
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Predict</button>
+    </div>
+  </form>
+  <div class="card mt-3 col-6">
+    <h5 class="card-header">Predict results</h5>
+    <div class="card-body">
+      <div class="vote-results" [ngStyle]="hideClass">
+        <div class="vote-results__bar">
+          <div class="vote-results__bar__fill" [ngStyle]="dynamicStyles" [style.width.%]="result"></div>
+        </div>
+        <div class="vote-results__label">{{result| number:'0.2'}}%</div>
+      </div>
+    </div>
+  </div>
+</div>
+
